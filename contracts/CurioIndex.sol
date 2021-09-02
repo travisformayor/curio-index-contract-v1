@@ -45,8 +45,11 @@ contract CurioIndex is CommonConstants {
         uint256 bal;
 
         if (_id < 200) {
+            require(_id > 10, "Invalid ID under 101");
+            require((_id - 100) < 31, "Invalid ID for unwrapped curio");
             // handle as unwrapped
-
+            bal = unwrappedCards[_id - 101].balanceOf(_owner);
+            console.log("received balance from cro%s: %s", _id - 100, bal);
         } else if (_id < 300) {
             require((_id - 200) < 31, "Invalid ID for wrapped curio");
 
@@ -54,10 +57,8 @@ contract CurioIndex is CommonConstants {
             // id is 204... we want 4, so subtract 200
             bal = curioWrapperContract.balanceOf(_owner, _id - 200);
             console.log("received balance: %s", bal);
-
         } else {
             // handle as set
-
         }
 
         return bal;
