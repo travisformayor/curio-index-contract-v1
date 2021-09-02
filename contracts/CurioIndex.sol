@@ -2,6 +2,8 @@
 pragma solidity ^0.8.0;
 
 import "hardhat/console.sol";
+import "./ICurio20.sol";
+import "./IERC1155.sol";
 
 /*
 ID 101: Unwrapped CRO1
@@ -35,10 +37,7 @@ if id > 300
     use set mapping
 */
 
-interface IERC1155 {
-    function balanceOf(address _owner, uint256 _id) external view returns (uint256);
-    function balanceOfBatch(address[] calldata _owners, uint256[] calldata _ids) external view returns (uint256[] memory);
-}
+
 
 contract CurioIndex {
     IERC1155 curioWrapperContract = IERC1155(0x73DA73EF3a6982109c4d5BDb0dB9dd3E3783f313);
