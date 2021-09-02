@@ -4,6 +4,7 @@ pragma solidity ^0.8.0;
 import "hardhat/console.sol";
 import "./ICurio20.sol";
 import "./IERC1155.sol";
+import "./Common.sol";
 
 /*
 ID 101: Unwrapped CRO1
@@ -37,13 +38,7 @@ if id > 300
     use set mapping
 */
 
-
-
-contract CurioIndex {
-    IERC1155 curioWrapperContract = IERC1155(0x73DA73EF3a6982109c4d5BDb0dB9dd3E3783f313);
-
-    //mapping (uint256 => ) private _balances;
-
+contract CurioIndex is CommonConstants {
     function balanceOf(address _owner, uint256 _id) external view returns (uint256) {
         console.log("calling balanceOf on curio wrapper for id %s", _id);
 
