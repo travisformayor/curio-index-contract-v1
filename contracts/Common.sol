@@ -7,14 +7,60 @@ import "./IERC1155.sol";
 // Simple contract to use as base for const vals
 
 contract CommonConstants {
-    // // uint256[][] cardSets = [
-    // //     [1,2,3,4,5,6,7,8,9,10],
-    // //     [11, 12, 13],
-    // //     [14, 15, 16]
-    // // ];
+    constructor() {
+        // 0: story, 1: full, 2: phneep, 3: cryptograffiti, 4: cryptopop, 5: robek, 6: daniel friedman, 7: marisol vengas
 
-    // mapping(uint => uint[]) cardSets;
-    // // cardSets[1] = [1,2,3,4,5,6,7,8,9,10];
+        uint256[] memory storySet = new uint256[](10);
+        for (uint256 i = 0; i < 10; i++) {
+            storySet[i] = i+1;
+        }
+        cardSets.push(storySet);
+
+        uint256[] memory fullSet = new uint256[](30);
+        for (uint256 i = 0; i < 30; i++) {
+            fullSet[i] = i+1;
+        }
+        cardSets.push(fullSet);
+
+        uint256[] memory phneepSet = new uint256[](4);
+        phneepSet[0] = 14;
+        phneepSet[1] = 15;
+        phneepSet[2] = 16;
+        phneepSet[3] = 20;
+        cardSets.push(phneepSet);
+
+        uint256[] memory cryptograffitiSet = new uint256[](3);
+        cryptograffitiSet[0] = 11;
+        cryptograffitiSet[1] = 12;
+        cryptograffitiSet[2] = 13;
+        cardSets.push(cryptograffitiSet);
+
+        uint256[] memory cryptopopSet = new uint256[](3);
+        cryptopopSet[0] = 17;
+        cryptopopSet[1] = 18;
+        cryptopopSet[2] = 19;
+        cardSets.push(cryptopopSet);
+
+        uint256[] memory robekSet = new uint256[](3);
+        robekSet[0] = 21;
+        robekSet[1] = 22;
+        robekSet[2] = 23;
+        cardSets.push(robekSet);
+
+        uint256[] memory danielSet = new uint256[](3);
+        danielSet[0] = 24;
+        danielSet[1] = 25;
+        danielSet[2] = 26;
+        cardSets.push(danielSet);
+
+        uint256[] memory marisolSet = new uint256[](3);
+        marisolSet[0] = 27;
+        marisolSet[1] = 28;
+        marisolSet[2] = 29;
+        cardSets.push(marisolSet);
+    }
+
+    uint256[][] cardSets;
 
     IERC1155 curioWrapperContract = IERC1155(0x73DA73EF3a6982109c4d5BDb0dB9dd3E3783f313);
 

@@ -13,12 +13,20 @@ ID 102: Unwrapped CRO2... etc
 ID 201: Wrapped CRO1
 ID 202: Wrapped CRO2... etc
 
+
+ID 301: 1-10 set
 ID 301: Phneep set
 ID 302: Cryptograffit set
 ID 303: other artist... etc
 
 ID 310: Full Set
 ID 311: 1-10 set
+
+// 0: story, 1: full, 2: phneep, 3: cryptograffiti, 4: cryptopop, 5: robek, 6: daniel friedman, 7: marisol vengas
+ID 301: Story
+ID 302: Full
+ID 303: Phneep
+etc
 
 Collabland can then be programmed to look for IDs for a set by looking at ID 1, or 2, etc
 
@@ -53,31 +61,18 @@ contract CurioIndex is CommonConstants {
             bal = curioWrapperContract.balanceOf(_owner, _id - 200);
             console.log("received balance: %s", bal);
         } else {
+            require((_id - 301) < 8, "Invalid ID for curio set");
             // handle as wrapped set
-            // function balanceOfBatch(address[] calldata _owners, uint256[] calldata _ids) external view returns (uint256[] memory);
-
-            // First only check for the Story Set
-            uint256[] memory setCards = new uint256[](10); // allocate length 10 in memory
-            setCards[0] = 1;
-            setCards[1] = 2;
-            setCards[2] = 3;
-            setCards[3] = 4;
-            setCards[4] = 5;
-            setCards[5] = 6;
-            setCards[6] = 7;
-            setCards[7] = 8;
-            setCards[8] = 9;
-            setCards[9] = 10;
 
             address[] memory ownerArray = new address[](10);
-            for (uint256 i = 0; i < setCards.length; i++) {
+            for (uint256 i = 0; i < cardSets[_id - 301].length; i++) {
                 ownerArray[i] = _owner;
             }
 
-            console.log("set cards length: %s", setCards.length);
+            console.log("set cards length: %s", cardSets[_id - 301].length);
             console.log("owner array length: %s", ownerArray.length);
 
-            batchBal = curioWrapperContract.balanceOfBatch(ownerArray, setCards);
+            batchBal = curioWrapperContract.balanceOfBatch(ownerArray, cardSets[_id - 301]);
             console.log("recieved balances for story set: %s", batchBal[0]);
 
             uint256 smallest = batchBal[0];
