@@ -25,9 +25,9 @@ describe("CurioIndex", function () {
     const index = await CurioIndex.deploy();
     await index.deployed();
 
-    await expect(index.balanceOf(WRAPPED_HOLDER_ADDRESS, "240")).to.be.revertedWith(
-      "Invalid ID for wrapped curio"
-    );
+    await expect(
+      index.balanceOf(WRAPPED_HOLDER_ADDRESS, "240")
+    ).to.be.revertedWith("Invalid ID for wrapped curio");
   });
 
   // == Test Unwrapped Lookup == //
@@ -36,46 +36,48 @@ describe("CurioIndex", function () {
     const index = await CurioIndex.deploy();
     await index.deployed();
 
-    expect(
-      await index.balanceOf(UNWRAPPED_HOLDER_ADDRESS, "101")
-    ).to.equal(1);
+    expect(await index.balanceOf(UNWRAPPED_HOLDER_ADDRESS, "101")).to.equal(1);
   });
   it("Get balance for CRO13", async function () {
     const CurioIndex = await ethers.getContractFactory("CurioIndex");
     const index = await CurioIndex.deploy();
     await index.deployed();
 
-    expect(
-      await index.balanceOf(UNWRAPPED_HOLDER_ADDRESS, "113")
-    ).to.equal(3);
+    expect(await index.balanceOf(UNWRAPPED_HOLDER_ADDRESS, "113")).to.equal(3);
   });
   it("Get balance for CRO30", async function () {
     const CurioIndex = await ethers.getContractFactory("CurioIndex");
     const index = await CurioIndex.deploy();
     await index.deployed();
 
-    expect(
-      await index.balanceOf(UNWRAPPED_HOLDER_ADDRESS, "130")
-    ).to.equal(2);
+    expect(await index.balanceOf(UNWRAPPED_HOLDER_ADDRESS, "130")).to.equal(2);
   });
   it("Should fail for a nonexistent id under 101 (id 90)", async function () {
     const CurioIndex = await ethers.getContractFactory("CurioIndex");
     const index = await CurioIndex.deploy();
     await index.deployed();
 
-    await expect(index.balanceOf(UNWRAPPED_HOLDER_ADDRESS, "90")).to.be.revertedWith(
-      "Invalid ID under 101"
-    );
+    await expect(
+      index.balanceOf(UNWRAPPED_HOLDER_ADDRESS, "90")
+    ).to.be.revertedWith("Invalid ID under 101");
   });
   it("Should fail for a nonexistent wrapped card (id 140)", async function () {
     const CurioIndex = await ethers.getContractFactory("CurioIndex");
     const index = await CurioIndex.deploy();
     await index.deployed();
 
-    await expect(index.balanceOf(UNWRAPPED_HOLDER_ADDRESS, "140")).to.be.revertedWith(
-      "Invalid ID for unwrapped curio"
-    );
+    await expect(
+      index.balanceOf(UNWRAPPED_HOLDER_ADDRESS, "140")
+    ).to.be.revertedWith("Invalid ID for unwrapped curio");
   });
 
   // == Test Wrapped Sets Lookup == //
+  it("Test batch balance for sets (id 301)", async function () {
+    const CurioIndex = await ethers.getContractFactory("CurioIndex");
+    const index = await CurioIndex.deploy();
+    await index.deployed();
+
+    expect(await index.balanceOf(WRAPPED_HOLDER_ADDRESS, "301")).to.equal(7);
+    // note: test this agasint other sets as well - the apple card is also the smallest in this example, is it checking all of them?
+  });
 });
