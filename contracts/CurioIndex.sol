@@ -25,7 +25,8 @@ ID 311: 1-10 set
 // 0: story, 1: full, 2: phneep, 3: cryptograffiti, 4: cryptopop, 5: robek, 6: daniel friedman, 7: marisol vengas
 ID 301: Story
 ID 302: Full
-ID 303: Phneep
+ID 303: Cryptograffiti
+ID 304: Phneep
 etc
 
 Collabland can then be programmed to look for IDs for a set by looking at ID 1, or 2, etc
@@ -64,7 +65,7 @@ contract CurioIndex is CommonConstants {
             require((_id - 301) < 8, "Invalid ID for curio set");
             // handle as wrapped set
 
-            address[] memory ownerArray = new address[](10);
+            address[] memory ownerArray = new address[](cardSets[_id - 301].length);
             for (uint256 i = 0; i < cardSets[_id - 301].length; i++) {
                 ownerArray[i] = _owner;
             }

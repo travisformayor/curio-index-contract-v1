@@ -12,15 +12,21 @@ contract CommonConstants {
 
         uint256[] memory storySet = new uint256[](10);
         for (uint256 i = 0; i < 10; i++) {
-            storySet[i] = i+1;
+            storySet[i] = i + 1;
         }
         cardSets.push(storySet);
 
         uint256[] memory fullSet = new uint256[](30);
         for (uint256 i = 0; i < 30; i++) {
-            fullSet[i] = i+1;
+            fullSet[i] = i + 1;
         }
         cardSets.push(fullSet);
+
+        uint256[] memory cryptograffitiSet = new uint256[](3);
+        cryptograffitiSet[0] = 11;
+        cryptograffitiSet[1] = 12;
+        cryptograffitiSet[2] = 13;
+        cardSets.push(cryptograffitiSet);
 
         uint256[] memory phneepSet = new uint256[](4);
         phneepSet[0] = 14;
@@ -28,12 +34,6 @@ contract CommonConstants {
         phneepSet[2] = 16;
         phneepSet[3] = 20;
         cardSets.push(phneepSet);
-
-        uint256[] memory cryptograffitiSet = new uint256[](3);
-        cryptograffitiSet[0] = 11;
-        cryptograffitiSet[1] = 12;
-        cryptograffitiSet[2] = 13;
-        cardSets.push(cryptograffitiSet);
 
         uint256[] memory cryptopopSet = new uint256[](3);
         cryptopopSet[0] = 17;

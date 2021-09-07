@@ -72,12 +72,60 @@ describe("CurioIndex", function () {
   });
 
   // == Test Wrapped Sets Lookup == //
-  it("Test batch balance for sets (id 301)", async function () {
+  it("Test batch balance for story set (id 301)", async function () {
     const CurioIndex = await ethers.getContractFactory("CurioIndex");
     const index = await CurioIndex.deploy();
     await index.deployed();
 
     expect(await index.balanceOf(WRAPPED_HOLDER_ADDRESS, "301")).to.equal(7);
-    // note: test this agasint other sets as well - the apple card is also the smallest in this example, is it checking all of them?
+  });
+  it("Test batch balance for full set (id 302)", async function () {
+    const CurioIndex = await ethers.getContractFactory("CurioIndex");
+    const index = await CurioIndex.deploy();
+    await index.deployed();
+
+    expect(await index.balanceOf(WRAPPED_HOLDER_ADDRESS, "302")).to.equal(2);
+  });
+  it("Test batch balance for cryptograffiti set (id 303)", async function () {
+    const CurioIndex = await ethers.getContractFactory("CurioIndex");
+    const index = await CurioIndex.deploy();
+    await index.deployed();
+
+    expect(await index.balanceOf(WRAPPED_HOLDER_ADDRESS, "303")).to.equal(3);
+  });
+  it("Test batch balance for phneep set (id 304)", async function () {
+    const CurioIndex = await ethers.getContractFactory("CurioIndex");
+    const index = await CurioIndex.deploy();
+    await index.deployed();
+
+    expect(await index.balanceOf(WRAPPED_HOLDER_ADDRESS, "304")).to.equal(3);
+  });
+  it("Test batch balance for cryptopop set (id 305)", async function () {
+    const CurioIndex = await ethers.getContractFactory("CurioIndex");
+    const index = await CurioIndex.deploy();
+    await index.deployed();
+
+    expect(await index.balanceOf(WRAPPED_HOLDER_ADDRESS, "305")).to.equal(2);
+  });
+  it("Test batch balance for robek set (id 306)", async function () {
+    const CurioIndex = await ethers.getContractFactory("CurioIndex");
+    const index = await CurioIndex.deploy();
+    await index.deployed();
+
+    expect(await index.balanceOf(WRAPPED_HOLDER_ADDRESS, "306")).to.equal(2);
+  });
+  it("Test batch balance for daniel set (id 307)", async function () {
+    const CurioIndex = await ethers.getContractFactory("CurioIndex");
+    const index = await CurioIndex.deploy();
+    await index.deployed();
+
+    expect(await index.balanceOf(WRAPPED_HOLDER_ADDRESS, "307")).to.equal(2);
+  });
+  it("Test batch balance for marisol set (id 308)", async function () {
+    const CurioIndex = await ethers.getContractFactory("CurioIndex");
+    const index = await CurioIndex.deploy();
+    await index.deployed();
+
+    expect(await index.balanceOf(WRAPPED_HOLDER_ADDRESS, "308")).to.equal(2);
   });
 });
