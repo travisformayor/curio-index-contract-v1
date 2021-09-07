@@ -7,8 +7,16 @@ import "./IERC1155.sol";
 // Simple contract to use as base for const vals
 
 contract CommonConstants {
-    IERC1155 curioWrapperContract = IERC1155(0x73DA73EF3a6982109c4d5BDb0dB9dd3E3783f313);
+    // // uint256[][] cardSets = [
+    // //     [1,2,3,4,5,6,7,8,9,10],
+    // //     [11, 12, 13],
+    // //     [14, 15, 16]
+    // // ];
 
+    // mapping(uint => uint[]) cardSets;
+    // // cardSets[1] = [1,2,3,4,5,6,7,8,9,10];
+
+    IERC1155 curioWrapperContract = IERC1155(0x73DA73EF3a6982109c4d5BDb0dB9dd3E3783f313);
 
     ICurio20[] unwrappedCards = [
         ICurio20(0x6Aa2044C7A0f9e2758EdAE97247B03a0D7e73d6c), //cro1
@@ -41,6 +49,6 @@ contract CommonConstants {
         ICurio20(0x59D190e8A2583C67E62eEc8dA5EA7f050d8BF27e), //cro28
         ICurio20(0xD3540bCD9c2819771F9D765Edc189cBD915FEAbd), //cro29
         ICurio20(0x7F5B230Dc580d1e67DF6eD30dEe82684dD113D1F), //cro30
-        ICurio20(0xE0B5E6F32d657e0e18d4B3E801EBC76a5959e123)  //cro17b
+        ICurio20(0xE0B5E6F32d657e0e18d4B3E801EBC76a5959e123) //cro17b
     ];
 }
