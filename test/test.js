@@ -182,7 +182,7 @@ describe("CurioIndex", function () {
     const index = await CurioIndex.deploy();
     await index.deployed();
 
-    let response = await index.balanceOfBatch([
+    let response = index.balanceOfBatch([
       WRAPPED_HOLDER_ADDRESS,
       WRAPPED_HOLDER_ADDRESS,
       WRAPPED_HOLDER_ADDRESS,
@@ -191,6 +191,6 @@ describe("CurioIndex", function () {
     ],
       ["101", "201", "240", "301", "307"]);
 
-    expect(response).to.be.revertedWith("Invalid ID: wrapped curio id over 30");
+    await expect(response).to.be.revertedWith("Invalid ID: wrapped curio id over 30");
   });
 });
