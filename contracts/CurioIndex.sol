@@ -8,17 +8,17 @@ import "./Common.sol";
 
 /*
 ID 101: Unwrapped CRO1
-ID 102: Unwrapped CRO2... etc
+ID 102: Unwrapped CRO2
+... etc
 
 ID 201: Wrapped CRO1
-ID 202: Wrapped CRO2... etc
+ID 202: Wrapped CRO2
+... etc
 
-// 0: story, 1: full, 2: phneep, 3: cryptograffiti, 4: cryptopop, 5: robek, 6: daniel friedman, 7: marisol vengas
-ID 301: Story
-ID 302: Full
-ID 303: Cryptograffiti
-ID 304: Phneep
-etc
+ID 301: Story Set
+ID 302: Cryptograffiti Set
+.. etc
+ID 308: Full Set
 */
 
 contract CurioIndex is CommonConstants {

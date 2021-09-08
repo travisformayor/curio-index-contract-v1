@@ -5,21 +5,22 @@ import "./ICurio20.sol";
 import "./IERC1155.sol";
 
 // Simple contract to use as base for const vals
-
 contract CommonConstants {
     constructor() {
-        // 8 sets - 0: story, 1: full, 2: phneep, 3: cryptograffiti, 4: cryptopop, 5: robek, 6: daniel friedman, 7: marisol vengas
+        // 8 sets:
+        // [0] (ID 301) story set
+        // [1] (ID 302) cryptograffiti set
+        // [2] (ID 303) phneep set
+        // [3] (ID 304) cryptopop set
+        // [4] (ID 305) robek set
+        // [5] (ID 306) daniel friedman set
+        // [6] (ID 307) marisol vengas set
+        // [7] (ID 308) full set
         uint256[] memory storySet = new uint256[](10);
         for (uint256 i = 0; i < 10; i++) {
             storySet[i] = i + 1;
         }
         cardSets.push(storySet);
-
-        uint256[] memory fullSet = new uint256[](30);
-        for (uint256 i = 0; i < 30; i++) {
-            fullSet[i] = i + 1;
-        }
-        cardSets.push(fullSet);
 
         uint256[] memory cryptograffitiSet = new uint256[](3);
         cryptograffitiSet[0] = 11;
@@ -27,11 +28,10 @@ contract CommonConstants {
         cryptograffitiSet[2] = 13;
         cardSets.push(cryptograffitiSet);
 
-        uint256[] memory phneepSet = new uint256[](4);
+        uint256[] memory phneepSet = new uint256[](3);
         phneepSet[0] = 14;
         phneepSet[1] = 15;
         phneepSet[2] = 16;
-        phneepSet[3] = 20;
         cardSets.push(phneepSet);
 
         uint256[] memory cryptopopSet = new uint256[](3);
@@ -57,6 +57,12 @@ contract CommonConstants {
         marisolSet[1] = 28;
         marisolSet[2] = 29;
         cardSets.push(marisolSet);
+
+        uint256[] memory fullSet = new uint256[](30);
+        for (uint256 i = 0; i < 30; i++) {
+            fullSet[i] = i + 1;
+        }
+        cardSets.push(fullSet);
     }
 
     uint256[][] cardSets;
