@@ -145,24 +145,52 @@ describe("CurioIndex", function () {
 
     expect(await index.balanceOf(WRAPPED_HOLDER_ADDRESS, "308")).to.equal(1);
   });
+
+  // == Test batch balance lookup == //
+  // send 1
+  it("Test batch balance checking for 1 card (id 301)", async function () {
     const CurioIndex = await ethers.getContractFactory("CurioIndex");
     const index = await CurioIndex.deploy();
     await index.deployed();
 
-    expect(await index.balanceOf(WRAPPED_HOLDER_ADDRESS, "306")).to.equal(2);
+    expect((await index.balanceOfBatch([WRAPPED_HOLDER_ADDRESS], ["301"]))[0]).to.equal([1]);
   });
-  it("Test batch balance for daniel set (id 307)", async function () {
+  // send many
+  it("Test batch balance checking for many cards (id 101, 102, 110, 205, 230, 303)", async function () {
     const CurioIndex = await ethers.getContractFactory("CurioIndex");
     const index = await CurioIndex.deploy();
     await index.deployed();
 
-    expect(await index.balanceOf(WRAPPED_HOLDER_ADDRESS, "307")).to.equal(2);
+    let response = await index.balanceOfBatch([
+      WRAPPED_HOLDER_ADDRESS,
+      WRAPPED_HOLDER_ADDRESS,
+      WRAPPED_HOLDER_ADDRESS,
+      WRAPPED_HOLDER_ADDRESS,
+      WRAPPED_HOLDER_ADDRESS
+    ],
+      ["101", "201", "230", "301", "307"]);
+
+    expect(response[0]).to.equal(0);
+    expect(response[1]).to.equal(3);
+    expect(response[2]).to.equal(4);
+    expect(response[3]).to.equal(1);
+    expect(response[4]).to.equal(1);
   });
-  it("Test batch balance for marisol set (id 308)", async function () {
+  // send many with 1 wrong
+  it("Test batch balance checking for many cards (id 101, 102, 110, 205, 230, 303)", async function () {
     const CurioIndex = await ethers.getContractFactory("CurioIndex");
     const index = await CurioIndex.deploy();
     await index.deployed();
 
-    expect(await index.balanceOf(WRAPPED_HOLDER_ADDRESS, "308")).to.equal(2);
+    let response = await index.balanceOfBatch([
+      WRAPPED_HOLDER_ADDRESS,
+      WRAPPED_HOLDER_ADDRESS,
+      WRAPPED_HOLDER_ADDRESS,
+      WRAPPED_HOLDER_ADDRESS,
+      WRAPPED_HOLDER_ADDRESS
+    ],
+      ["101", "201", "240", "301", "307"]);
+
+    expect(response).to.be.revertedWith("Invalid ID: wrapped curio id over 30");
   });
 });

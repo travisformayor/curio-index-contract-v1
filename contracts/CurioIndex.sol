@@ -63,4 +63,18 @@ contract CurioIndex is CommonConstants {
 
         return bal;
     }
+
+    function balanceOfBatch(address[] calldata _owners, uint256[] calldata _ids) external view returns (uint256[] memory) {
+        require(_owners.length == _ids.length, "The passed arrays are different sizes");
+
+        // Q: Ineffiecint way to ask for many wrapper id's - could pass them to the batch balance function.
+        // (cont.) but more code to parse those id's out, request in bulk, then fold them back in correctly
+        uint256[] memory batchBal = new uint256[](_owners.length);
+
+        for (uint256 i = 0; i < _owners.length; i++) {
+            batchBal[i] = this.balanceOf(_owners[i], _ids[i]);
+        }
+
+        return batchBal;
+    }
 }
