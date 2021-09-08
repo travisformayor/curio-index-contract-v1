@@ -1,8 +1,9 @@
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
-const WRAPPED_HOLDER_ADDRESS = process.env.WRAPPED_HOLDER_ADDRESS;
-const UNWRAPPED_HOLDER_ADDRESS = process.env.UNWRAPPED_HOLDER_ADDRESS;
+const WRAPPED_HOLDER_ADDRESS = "0xeD47015Bb8080B9399f9D0ddFc427B9Cee2CaAB1"; // picked from leaderboard
+const UNWRAPPED_HOLDER_ADDRESS = "0x46A96D603ec2aC6d75Fa8824bE3197fA8EbcE37b"; // top zombie wallet
+
 
 describe("CurioIndex", function () {
   // == Test Wrapped Lookup == //
