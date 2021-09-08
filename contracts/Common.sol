@@ -8,8 +8,7 @@ import "./IERC1155.sol";
 
 contract CommonConstants {
     constructor() {
-        // 0: story, 1: full, 2: phneep, 3: cryptograffiti, 4: cryptopop, 5: robek, 6: daniel friedman, 7: marisol vengas
-
+        // 8 sets - 0: story, 1: full, 2: phneep, 3: cryptograffiti, 4: cryptopop, 5: robek, 6: daniel friedman, 7: marisol vengas
         uint256[] memory storySet = new uint256[](10);
         for (uint256 i = 0; i < 10; i++) {
             storySet[i] = i + 1;
