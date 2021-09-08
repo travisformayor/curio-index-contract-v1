@@ -190,4 +190,17 @@ describe("CurioIndex", function () {
 
     await expect(response).to.be.revertedWith("Invalid ID: wrapped curio id over 30");
   });
+  it("Test batch balance checking with mis-matching array sizes", async function () {
+    const CurioIndex = await ethers.getContractFactory("CurioIndex");
+    const index = await CurioIndex.deploy();
+    await index.deployed();
+
+    let response = index.balanceOfBatch([
+      WRAPPED_HOLDER_ADDRESS,
+      WRAPPED_HOLDER_ADDRESS,
+    ],
+      ["101", "201", "230"]);
+
+    await expect(response).to.be.revertedWith("The passed arrays are different sizes");
+  });
 });
