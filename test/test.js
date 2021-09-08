@@ -147,7 +147,6 @@ describe("CurioIndex", function () {
   });
 
   // == Test batch balance lookup == //
-  // send 1
   it("Test batch balance checking for 1 card (id 301)", async function () {
     const CurioIndex = await ethers.getContractFactory("CurioIndex");
     const index = await CurioIndex.deploy();
@@ -155,7 +154,6 @@ describe("CurioIndex", function () {
 
     expect((await index.balanceOfBatch([WRAPPED_HOLDER_ADDRESS], ["301"]))[0]).to.equal([1]);
   });
-  // send many
   it("Test batch balance checking for many cards (id 101, 102, 110, 205, 230, 303)", async function () {
     const CurioIndex = await ethers.getContractFactory("CurioIndex");
     const index = await CurioIndex.deploy();
@@ -176,7 +174,6 @@ describe("CurioIndex", function () {
     expect(response[3]).to.equal(1);
     expect(response[4]).to.equal(1);
   });
-  // send many with 1 wrong
   it("Test batch balance checking for many cards, with one wrong (id 240)", async function () {
     const CurioIndex = await ethers.getContractFactory("CurioIndex");
     const index = await CurioIndex.deploy();
