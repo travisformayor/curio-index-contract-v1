@@ -177,7 +177,7 @@ describe("CurioIndex", function () {
     expect(response[4]).to.equal(1);
   });
   // send many with 1 wrong
-  it("Test batch balance checking for many cards (id 101, 102, 110, 205, 230, 303)", async function () {
+  it("Test batch balance checking for many cards, with one wrong (id 240)", async function () {
     const CurioIndex = await ethers.getContractFactory("CurioIndex");
     const index = await CurioIndex.deploy();
     await index.deployed();
