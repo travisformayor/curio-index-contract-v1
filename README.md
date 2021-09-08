@@ -31,9 +31,9 @@ function balanceOfBatch(address[] calldata _owners, uint256[] calldata _ids) ext
 ```
 
 ## Repo Files
-- [Main Contract](contacts/CurioIndex.sol)
+- [Main Contract](contracts/CurioIndex.sol)
 - [Contract Constants](contracts/Common.sol)
 - [Curio Cards Native contract Interface](contracts/ICurio20.sol)
-- [Curio Cards Wrapper contract Interface](contract/IERC1155.sol)
+- [Curio Cards Wrapper contract Interface](contracts/IERC1155.sol)
 - [Unit Tests](test/test.js)
 - [Hardhat Config](hardhat.config.js)
