@@ -1,6 +1,6 @@
 # Curio Index Contract
 
-The Curio Index smart contract is a single point for querying Curio Cards balance information for the 2017 card smart contracts, the 2021 wrapper contract, and a collection of sets for wrapped cards. In place of performing 30 separate balance lookups of the original 2017 card contracts, this smart contract lets you perform one address balance lookup. It then pulls the balances from all thirty 2017 card contracts. For looking up the balance of specific sets, the contract returns the number of complete sets a given address has.
+The Curio Index smart contract is a single point for querying Curio Cards balance information for the 2017 card smart contracts, the 2021 wrapper contract, and a collection of sets for wrapped cards. In place of performing 30 separate balance lookups of the original 2017 card contracts, this smart contract lets you perform one address balance lookup. It then pulls the balance from all thirty 2017 card contracts and the wrapper balance. For looking up the balance of specific sets, the contract returns the number of complete sets a given address has wrapped cards for.
 
 ## ID Namespaces
 
